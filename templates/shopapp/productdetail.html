@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="card">
+        <div class="row">
+            <aside class="col-sm-5 border-right">
+                <article class="gallery-wrap">
+                    <div class="img-big-wrap">
+                        <div class="">
+                            <a href="">
+                                <img src="{{object.mainimage.url}}" width="450px" alt="">
+                            </a>
+
+                        </div>
+                    </div>
+
+                </article>
+            </aside>
+            <aside class="col-md-7">
+                <article class="card-body p-5">
+                    <h3 class="title mp-3">{{object.name}}</h3>
+                    <p class="price-detail-wrap">
+                        <span class="price h3 text-warning">
+                            <span class="currency">BDT &#2547</span>
+                            <span class="num">{{object.price}}</span>
+                            
+                        </span>
+                    </p>
+
+                <dt class="item-property">
+                    Description
+                    <dd>
+                        <p>{{object.detail_text | linebreaks }}</p>
+                    </dd>
+                </dt>
+                <a href="{% url 'orderapp:add' pk=object.pk %}" class="btn btn-outline-primary text-uppercase"><i class="fas fa-shopping-cart"></i>Add to Cart</a>
+                </article>
+
+            </aside>
+        </div>
+    </div>
+</div>
+{% endblock %}
